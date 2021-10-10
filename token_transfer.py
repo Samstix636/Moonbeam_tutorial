@@ -14,13 +14,13 @@ print(web3.isConnected())
 # Variables
 account_from = {
     "private_key": config.private,
-    "address": config.wallet_address,
+    "address": web3.toChecksumAddress(config.wallet_address),
 }
-address_to = "0x29c98d169B64Bf66B0C997eb55cC693f92190f79"
+address_to = web3.toChecksumAddress("Recipient public address")
 
 # Getting the balance of our wallet
-balanceinWei = web3.eth.get_balance(account_from['address'])
-balanceinDev= web3.fromWei(balanceinWei, 'ether')
+# balanceinWei = web3.eth.get_balance(account_from['address'])
+# balanceinDev= web3.fromWei(balanceinWei, 'ether')
 
 
 print(
@@ -41,6 +41,5 @@ txn = web3.eth.account.signTransaction(
 
 # Send signed Txn
 tx_hash = web3.eth.sendRawTransaction(txn.rawTransaction)
-# receipt = web3.eth.waitForTransactionReceipt(tx_hash)
 
 print('Successful. Txn Hash: ', web3.toHex(tx_hash))
