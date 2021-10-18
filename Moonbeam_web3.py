@@ -12,7 +12,7 @@ web3 = Web3(Web3.HTTPProvider(provider_rpc['alphanet']))
 print(web3.isConnected())
 
 #check balance
-addy = web3.toChecksumAddress("0x39DC57cf562736D62bE25EFC1B37ce43dEaf51Bc")
+addy = web3.toChecksumAddress("Your wallet address")
 
 balanceinwei = web3.eth.get_balance(addy)
 balanceinEth = web3.fromWei(balanceinwei, 'ether')
@@ -21,10 +21,10 @@ print(balanceinEth)
 #Send transaction
 account_from = {
     'private_key': config.private,
-    'address': web3.toChecksumAddress("0x39DC57cf562736D62bE25EFC1B37ce43dEaf51Bc")
+    'address': web3.toChecksumAddress("Your wallet address")
 }
 
-account_to = web3.toChecksumAddress("0x29c98d169B64Bf66B0C997eb55cC693f92190f79")
+account_to = web3.toChecksumAddress("Recipient's address")
 
 print('Attempting to send a transaction')
 
